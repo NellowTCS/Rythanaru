@@ -1,25 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;0,800;1,800&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    line-height: 1.6;
+    font-family: 'JetBrains Mono', monospace;
+    overflow: hidden;
+    user-select: none;
 }
 
-button {
-    background: #2196f3;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
 }
 
-button:hover {
-    background: #1976d2;
+.zoom-in {
+    animation: zoomIn 0.5s ease-out forwards;
 }
 
-.square {
-  width: 100px;
-  height: 100px;
-  background-color: blue;
+.bounce-text {
+    animation: bounceText 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pulse-text {
+    animation: pulseText 1s infinite;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceText {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+
+    70% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes pulseText {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Hide scrollbars */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Utility */
+.lane-key-active {
+    background: linear-gradient(to top, var(--primary), transparent);
+    opacity: 0.4;
 }
